@@ -1,0 +1,129 @@
+/* ---------------------------------------------------------------------------
+ * Portfolio — Design Tokens
+ * Style: Minimalism & Swiss Style   Palette: Portfolio/Personal (monochrome + blue)
+ * Type:  Space Grotesk (headings) / Archivo (body)
+ *
+ * Light-mode values are from the ui-ux-pro-max dataset (products/colors:
+ * "Portfolio/Personal"). Dark-mode values are derived, not from the dataset —
+ * see design-system.md.
+ * ------------------------------------------------------------------------- */
+
+/* Fonts are loaded via next/font in app/layout.tsx (self-hosted, no external request). */
+
+:root {
+  /* Brand */
+  --color-primary: #18181b;
+  --color-on-primary: #ffffff;
+  --color-secondary: #3f3f46;
+  --color-on-secondary: #ffffff;
+  --color-accent: #2563eb;
+  --color-on-accent: #ffffff;
+
+  /* Surfaces */
+  --color-background: #fafafa;
+  --color-foreground: #09090b;
+  --color-card: #ffffff;
+  --color-card-foreground: #09090b;
+  --color-muted: #e8ecf0;
+  --color-muted-foreground: #475569;
+
+  /* Lines & states */
+  --color-border: #e4e4e7;
+  --color-ring: #18181b;
+  --color-destructive: #dc2626;
+  --color-on-destructive: #ffffff;
+
+  /* Type — font faces are loaded via next/font in app/layout.tsx */
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  /* Swiss-style geometry: sharp corners, generous rhythm */
+  --radius: 0px;
+  --spacing-unit: 0.5rem;
+  --measure: 68ch;          /* max line length for body copy */
+  --container: 1200px;
+
+  /* Motion — single scale, honoured by the reduced-motion block below */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Derived dark palette. Backgrounds lifted off pure black so borders read;
+   accent lightened to hold 4.5:1 against the dark surface. */
+:root[data-theme='dark'],
+:root:not([data-theme='light']) {
+  @media (prefers-color-scheme: dark) {
+    --color-primary: #fafafa;
+    --color-on-primary: #09090b;
+    --color-secondary: #a1a1aa;
+    --color-on-secondary: #09090b;
+    --color-accent: #60a5fa;
+    --color-on-accent: #09090b;
+
+    --color-background: #09090b;
+    --color-foreground: #fafafa;
+    --color-card: #131316;
+    --color-card-foreground: #fafafa;
+    --color-muted: #1f1f23;
+    --color-muted-foreground: #a1a1aa;
+
+    --color-border: #27272a;
+    --color-ring: #fafafa;
+    --color-destructive: #f87171;
+    --color-on-destructive: #09090b;
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-primary: #fafafa;
+  --color-on-primary: #09090b;
+  --color-secondary: #a1a1aa;
+  --color-on-secondary: #09090b;
+  --color-accent: #60a5fa;
+  --color-on-accent: #09090b;
+
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-card: #131316;
+  --color-card-foreground: #fafafa;
+  --color-muted: #1f1f23;
+  --color-muted-foreground: #a1a1aa;
+
+  --color-border: #27272a;
+  --color-ring: #fafafa;
+  --color-destructive: #f87171;
+  --color-on-destructive: #09090b;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Keyboard focus must stay visible — Swiss style offers no other affordance. */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

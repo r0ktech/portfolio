@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+html {
+  overflow-x: hidden;
+  /* Neutralized under prefers-reduced-motion by the global rule in tokens.css. */
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container-portfolio {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-portfolio {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Chapter rhythm shared by every scroll-triggered section */
+.chapter {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+/*
+ * Hero entrance uses a plain CSS animation instead of a JS-driven one so it
+ * has no SSR/hydration branch and is neutralized for free by the
+ * prefers-reduced-motion block in tokens.css (which zeroes animation-duration
+ * globally) — no client-side detection needed.
+ */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Intro loading screen */
+@keyframes loader-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-loader-fill {
+  animation: loader-fill 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
