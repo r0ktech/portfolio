@@ -18,15 +18,15 @@ export default function MusicToggle() {
     try {
       turnedOffBefore = localStorage.getItem(STORAGE_KEY) === "1";
     } catch {
-      // localStorage unavailable — just try to autoplay.
+      // localStorage unavailable, just try to autoplay.
     }
     if (turnedOffBefore) return;
 
     // No browser allows real, audible autoplay without a prior user
-    // gesture — that's an enforced platform policy, not something client
+    // gesture. That's an enforced platform policy, not something client
     // code can opt out of. Muted autoplay IS always allowed, though, so we
     // start playback silently right away and unmute on the visitor's very
-    // first interaction with the page (scroll, click, tap, key press) —
+    // first interaction with the page (scroll, click, tap, key press):
     // the closest a site can get to "plays automatically."
     audio.muted = true;
     audio.play().catch(() => {});

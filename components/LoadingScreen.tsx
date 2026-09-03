@@ -17,12 +17,12 @@ export default function LoadingScreen() {
       seen = sessionStorage.getItem("intro-seen") === "1";
       sessionStorage.setItem("intro-seen", "1");
     } catch {
-      // sessionStorage unavailable (private mode, etc.) — just play the intro once.
+      // sessionStorage unavailable (private mode, etc.), just play the intro once.
     }
 
     // Read matchMedia directly rather than through a mount-gated hook: this
     // effect only ever fires client-side, and the loader's initial JSX never
-    // branches on the result, so there's no SSR/hydration risk here — just a
+    // branches on the result, so there's no SSR/hydration risk here, just a
     // synchronous check, taken once, before the timers are armed.
     const prefersReducedMotion =
       typeof window !== "undefined" &&
@@ -39,7 +39,7 @@ export default function LoadingScreen() {
       clearTimeout(toExit);
       clearTimeout(toDone);
     };
-    // Only ever needs to run once — re-evaluating on a later reduced-motion
+    // Only ever needs to run once. Re-evaluating on a later reduced-motion
     // flip mid-intro would restart the gate and isn't worth the complexity.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

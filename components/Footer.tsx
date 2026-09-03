@@ -4,9 +4,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--color-border)]">
       <div className="container-portfolio flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[var(--color-muted-foreground)]">
-          <span>© {new Date().getFullYear()} Raphael Okeke.</span>
-          <span className="font-mono text-xs opacity-60">{"// ↑ ↑ ↓ ↓ ← → ← → B A"}</span>
+        <p className="text-sm text-[var(--color-muted-foreground)]">
+          © {new Date().getFullYear()} Raphael Okeke.
         </p>
         <div className="flex gap-6 text-sm text-[var(--color-muted-foreground)]">
           <a

@@ -60,7 +60,7 @@ export default function ProjectPreview({ name, liveUrl, screenshot }: ProjectPre
             </div>
           )}
           <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-[var(--color-background)]/90 px-3 py-2 text-xs text-[var(--color-muted-foreground)] backdrop-blur">
-            <span className="truncate">{name} — live preview</span>
+            <span className="truncate">{name}: live preview</span>
             <div className="flex shrink-0 items-center gap-3">
               <a
                 href={liveUrl}

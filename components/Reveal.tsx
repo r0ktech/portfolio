@@ -13,7 +13,7 @@ type RevealProps = {
 
 /**
  * Scroll-triggered reveal for the "chapter" sections. Content is always in the
- * DOM in reading order — this only animates opacity/position, never mounts
+ * DOM in reading order, this only animates opacity/position, never mounts
  * content late. Under prefers-reduced-motion it renders the final state with
  * no animation at all, per the storytelling pattern's requirements.
  */

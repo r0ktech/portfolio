@@ -1,6 +1,7 @@
-import { GraduationCap } from "lucide-react";
+import Image from "next/image";
+import { HeartHandshake } from "lucide-react";
 import Reveal from "./Reveal";
-import { roles, education } from "@/lib/experience";
+import { roles, education, volunteering } from "@/lib/experience";
 
 export default function Experience() {
   return (
@@ -8,7 +9,7 @@ export default function Experience() {
       <div className="container-portfolio">
         <Reveal>
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            02 — The journey
+            02. The journey
           </p>
         </Reveal>
 
@@ -26,10 +27,25 @@ export default function Experience() {
                   <p className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--color-muted-foreground)]">
                     {role.period}
                   </p>
-                  <h3 className="mt-2 font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-foreground)]">
-                    {role.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">{role.org}</p>
+                  <div className="mt-2 flex items-center gap-3">
+                    {role.logo && (
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden border border-[var(--color-border)] bg-white">
+                        <Image
+                          src={role.logo}
+                          alt={`${role.org} logo`}
+                          width={44}
+                          height={44}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-[var(--color-foreground)]">
+                        {role.title}
+                      </h3>
+                      <p className="text-sm text-[var(--color-muted-foreground)]">{role.org}</p>
+                    </div>
+                  </div>
                   <ul className="mt-4 space-y-2">
                     {role.points.map((point) => (
                       <li
@@ -47,11 +63,21 @@ export default function Experience() {
 
           <Reveal delay={0.1}>
             <div className="border border-[var(--color-border)] bg-[var(--color-card)] p-6">
-              <GraduationCap size={20} aria-hidden className="text-[var(--color-accent)]" />
-              <h3 className="mt-4 font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-[0.15em] text-[var(--color-card-foreground)]">
-                Education
-              </h3>
-              <p className="mt-3 font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-card-foreground)]">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden border border-[var(--color-border)] bg-white">
+                  <Image
+                    src={education.logo}
+                    alt={`${education.school} logo`}
+                    width={44}
+                    height={44}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-[0.15em] text-[var(--color-card-foreground)]">
+                  Education
+                </h3>
+              </div>
+              <p className="mt-4 font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-card-foreground)]">
                 {education.degree}
               </p>
               <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">{education.school}</p>
@@ -60,6 +86,42 @@ export default function Experience() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={0.12}>
+          <div className="mt-14 border-t border-[var(--color-border)] pt-10">
+            <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-[var(--color-foreground)]">
+              <HeartHandshake size={16} aria-hidden className="text-[var(--color-accent)]" />
+              Volunteering
+            </h3>
+            <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+              {volunteering.map((v) => (
+                <div
+                  key={v.role}
+                  className="flex gap-4 border-l-2 border-[var(--color-border)] pl-6 transition-colors duration-300 hover:border-[var(--color-accent)]"
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden border border-[var(--color-border)] bg-white">
+                    <Image
+                      src={v.logo}
+                      alt={`${v.org} logo`}
+                      width={44}
+                      height={44}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--color-muted-foreground)]">
+                      {v.period}
+                    </p>
+                    <h4 className="mt-2 font-[family-name:var(--font-heading)] text-lg font-semibold text-[var(--color-foreground)]">
+                      {v.role}
+                    </h4>
+                    <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">{v.org}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal delay={0.1}>
           <a

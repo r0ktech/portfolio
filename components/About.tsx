@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import SkillsMarquee from "./SkillsMarquee";
 
 const skills = [
   {
@@ -11,7 +12,7 @@ const skills = [
   },
   {
     label: "ML / Data",
-    detail: "Python, FastAPI, scikit-learn, pandas — training and serving models",
+    detail: "Python, FastAPI, scikit-learn, pandas for training and serving models",
   },
   {
     label: "Engineering",
@@ -25,7 +26,7 @@ export default function About() {
       <div className="container-portfolio">
         <Reveal>
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            01 — The problem
+            01. The problem
           </p>
         </Reveal>
 
@@ -59,6 +60,10 @@ export default function About() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.15}>
+          <SkillsMarquee />
+        </Reveal>
 
         <Reveal delay={0.1}>
           <a
