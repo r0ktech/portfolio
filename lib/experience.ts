@@ -3,6 +3,7 @@ export type Role = {
   org: string;
   period: string;
   points: string[];
+  logo?: string;
 };
 
 export const roles: Role[] = [
@@ -10,9 +11,10 @@ export const roles: Role[] = [
     title: "Backend Developer Intern",
     org: "Apex Technology Hub & Services Limited, Awka",
     period: "Sep 2025 – Nov 2025",
+    logo: "/logos/apex.jpeg",
     points: [
       "Built and maintained RESTful APIs in Node.js and Express, agreeing request/response contracts with the frontend team up front to eliminate integration rework.",
-      "Implemented JWT and bcrypt authentication across protected routes — token issuance, session validation, and secure password storage.",
+      "Implemented JWT and bcrypt authentication across protected routes: token issuance, session validation, and secure password storage.",
       "Designed relational schemas and optimised SQL queries for full CRUD functionality, indexing frequently filtered columns to keep read times stable as data grew.",
     ],
   },
@@ -28,9 +30,32 @@ export const roles: Role[] = [
   },
 ];
 
+export type Volunteering = {
+  role: string;
+  org: string;
+  period: string;
+  logo: string;
+};
+
+export const volunteering: Volunteering[] = [
+  {
+    role: "Campus Ambassador",
+    org: "Cowrywise",
+    period: "Feb 2026 – Present · 8 mos",
+    logo: "/logos/cowrywise.png",
+  },
+  {
+    role: "Content Team Lead, UNIZIK",
+    org: "Google Developer Student Clubs",
+    period: "Aug 2026 – Present · 2 mos",
+    logo: "/logos/gdsc.png",
+  },
+];
+
 export const education = {
   degree: "B.Sc. Computer Science",
   school: "Nnamdi Azikiwe University, Awka",
   period: "Expected Aug 2027",
-  detail: "CGPA 4.41 / 5.0 — First Class Honours (in progress).",
+  detail: "CGPA 4.42 / 5.0, First Class Honours (in progress).",
+  logo: "/logos/unizik.jpeg",
 };

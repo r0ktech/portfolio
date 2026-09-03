@@ -3,7 +3,6 @@ import { Space_Grotesk, Archivo } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "@/components/LoadingScreen";
 import MusicToggle from "@/components/MusicToggle";
-import EasterEgg from "@/components/EasterEgg";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -20,9 +19,9 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Raphael Okeke — Full Stack Developer",
+  title: "Raphael Okeke, Full Stack Developer",
   description:
-    "Full stack developer building ML-backed dashboards, data-driven web apps, and end-to-end products — from database schema to pixel-perfect UI.",
+    "Full stack developer building ML-backed dashboards, data-driven web apps, and end-to-end products, from database schema to pixel-perfect UI.",
 };
 
 const themeInitScript = `
@@ -50,7 +49,6 @@ export default function RootLayout({
         <LoadingScreen />
         {children}
         <MusicToggle />
-        <EasterEgg />
       </body>
     </html>
   );

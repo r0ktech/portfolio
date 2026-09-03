@@ -8,7 +8,7 @@ export default function Contact() {
       <div className="container-portfolio">
         <Reveal>
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            05 — Let&apos;s build something
+            05. Let&apos;s build something
           </p>
         </Reveal>
 

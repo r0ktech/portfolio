@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
-// A free, key-based hit counter — https://abacus.jasoncameron.dev. No auth
+// A free, key-based hit counter: https://abacus.jasoncameron.dev. No auth
 // and no setup on our side; the trade-off is the count lives on a
 // third-party service rather than infrastructure we control. Namespaced to
 // this portfolio so it isn't shared with anyone else's counter.

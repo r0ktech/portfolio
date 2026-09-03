@@ -1,10 +1,10 @@
 /* ---------------------------------------------------------------------------
- * Portfolio — Design Tokens
+ * Portfolio Design Tokens
  * Style: Minimalism & Swiss Style   Palette: Portfolio/Personal (monochrome + blue)
  * Type:  Space Grotesk (headings) / Archivo (body)
  *
  * Light-mode values are from the ui-ux-pro-max dataset (products/colors:
- * "Portfolio/Personal"). Dark-mode values are derived, not from the dataset —
+ * "Portfolio/Personal"). Dark-mode values are derived, not from the dataset,
  * see design-system.md.
  * ------------------------------------------------------------------------- */
 
@@ -33,7 +33,7 @@
   --color-destructive: #dc2626;
   --color-on-destructive: #ffffff;
 
-  /* Type — font faces are loaded via next/font in app/layout.tsx */
+  /* Type: font faces are loaded via next/font in app/layout.tsx */
   --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
@@ -43,7 +43,7 @@
   --measure: 68ch;          /* max line length for body copy */
   --container: 1200px;
 
-  /* Motion — single scale, honoured by the reduced-motion block below */
+  /* Motion: single scale, honoured by the reduced-motion block below */
   --duration-fast: 150ms;
   --duration-base: 200ms;
   --duration-slow: 300ms;
@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* Keyboard focus must stay visible — Swiss style offers no other affordance. */
+/* Keyboard focus must stay visible. Swiss style offers no other affordance. */
 :focus-visible {
   outline: 2px solid var(--color-ring);
   outline-offset: 2px;

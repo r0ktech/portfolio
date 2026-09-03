@@ -9,7 +9,7 @@ export default function ProjectGrid() {
       <div className="container-portfolio">
         <Reveal>
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            04 — The range
+            04. The range
           </p>
         </Reveal>
 
@@ -18,7 +18,7 @@ export default function ProjectGrid() {
             More things I&apos;ve shipped, end to end.
           </h2>
           <p className="mt-6 max-w-[var(--measure)] text-lg text-[var(--color-muted-foreground)]">
-            Each one is live at its own URL — click a preview to load and use the
+            Each one is live at its own URL. Click a preview to load and use the
             real thing right here, not just a screenshot.
           </p>
         </Reveal>

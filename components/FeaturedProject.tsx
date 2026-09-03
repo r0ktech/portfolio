@@ -8,7 +8,7 @@ export default function FeaturedProject() {
       <div className="container-portfolio">
         <Reveal>
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            03 — The proof
+            03. The proof
           </p>
         </Reveal>
 
