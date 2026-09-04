@@ -56,6 +56,6 @@ export const education = {
   degree: "B.Sc. Computer Science",
   school: "Nnamdi Azikiwe University, Awka",
   period: "Expected Aug 2027",
-  detail: "CGPA 4.42 / 5.0, First Class Honours (in progress).",
+  detail: "CGPA 4.65 / 5.0, First Class Honours (in progress).",
   logo: "/logos/unizik.jpeg",
 };
