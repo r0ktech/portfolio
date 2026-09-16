@@ -24,7 +24,6 @@ export const roles: Role[] = [
     period: "Aug 2021 – Sep 2023",
     points: [
       "Translated design mockups into responsive, cross-browser interfaces across a range of client-facing web projects.",
-      "Built a reusable React component set with hooks-based state management, shortening build time on each new page.",
       "Implemented mobile-first layouts verified down to 320px width, and profiled page performance in Chrome DevTools to cut render-blocking requests.",
     ],
   },
