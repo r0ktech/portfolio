@@ -32,7 +32,7 @@ export default function About() {
 
         <Reveal delay={0.05}>
           <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-heading)] text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[var(--color-foreground)]">
-            Most products don&apos;t fail because of a bad idea. They fail in the
+            Most products don't fail because of a bad idea. They fail in the
             gap between design, backend, and data.
           </h2>
         </Reveal>
