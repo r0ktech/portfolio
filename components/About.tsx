@@ -4,7 +4,7 @@ import SkillsMarquee from "./SkillsMarquee";
 const skills = [
   {
     label: "Frontend",
-    detail: "Next.js, React, TypeScript, Tailwind CSS, Framer Motion",
+    detail: "Next.js, React, TypeScript, Tailwind CSS ",
   },
   {
     label: "Backend",
