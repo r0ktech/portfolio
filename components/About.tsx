@@ -8,7 +8,7 @@ const skills = [
   },
   {
     label: "Backend",
-    detail: "Node.js, Express, Prisma, PostgreSQL, REST & SSE APIs",
+    detail: "Node.js, Express, Prisma, PostgreSQL, REST APIs",
   },
   {
     label: "ML / Data",
