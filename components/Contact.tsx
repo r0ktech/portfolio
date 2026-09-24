@@ -14,7 +14,7 @@ export default function Contact() {
 
         <Reveal delay={0.05}>
           <h2 className="mt-4 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(2rem,5vw,4rem)] font-semibold leading-tight tracking-tight text-[var(--color-foreground)]">
-            Got a product to build? I&apos;d like to hear about it.
+            Got a product to build? I'd like to hear about it.
           </h2>
         </Reveal>
 
