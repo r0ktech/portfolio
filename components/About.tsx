@@ -16,7 +16,7 @@ const skills = [
   },
   {
     label: "Engineering",
-    detail: "Auth & RBAC, Docker, CI-friendly structure, Vercel deploys",
+    detail: "Auth & RBAC, Docker, Vercel deploys",
   },
 ];
 
