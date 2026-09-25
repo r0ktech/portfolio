@@ -28,10 +28,7 @@ export default function Hero() {
         <p
           className="animate-fade-in-up mt-6 max-w-[var(--measure)] text-lg text-[var(--color-muted-foreground)] sm:text-xl [animation-delay:150ms]"
         >
-          Full-Stack Developer | JavaScript, React, Next.js, Node.js, Express,
-          MySQL, Tailwind CSS, WordPress Dev | Building scalable web
-          applications and seamless user experiences with clean, efficient,
-          and maintainable code.
+          Full-Stack Developer | JavaScript, React, Next.js, Node.js, Express, MySQL, Tailwind, Postgres, WordPress | Building scalable web applications and seamless user experiences with clean, efficient, and maintainable code.
         </p>
 
         <div className="animate-fade-in-up mt-10 flex flex-wrap items-center gap-4 [animation-delay:200ms]">
