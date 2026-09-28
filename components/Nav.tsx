@@ -62,7 +62,7 @@ export default function Nav() {
           href="#top"
           className="cursor-pointer font-[family-name:var(--font-heading)] text-lg font-semibold tracking-tight text-[var(--color-foreground)] transition-colors duration-200"
         >
-          Raphael Okeke
+          RO
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
