@@ -9,8 +9,7 @@ import { Eye } from "lucide-react";
 // this portfolio so it isn't shared with anyone else's counter.
 const COUNTER_URL = "https://abacus.jasoncameron.dev/hit/r0ktech-portfolio/visits";
 
-// Guards against React StrictMode's dev-only double-invoke of effects,
-// which would otherwise count one real page view as two hits.
+
 let hasFetchedThisPageLoad = false;
 
 export default function VisitCounter() {
