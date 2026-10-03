@@ -15,7 +15,7 @@ export default function ScrollProgress() {
   return (
     <motion.div
       aria-hidden
-      className="h-[2px] origin-left bg-[var(--color-accent)]"
+      className="h-[2px] origin-left rounded-full bg-[var(--color-accent)]"
       style={{ scaleX: shouldReduceMotion ? scrollYProgress : smoothed }}
     />
   );
