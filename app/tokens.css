@@ -1,120 +1,171 @@
 /* ---------------------------------------------------------------------------
  * Portfolio Design Tokens
- * Style: Minimalism & Swiss Style   Palette: Portfolio/Personal (monochrome + blue)
- * Type:  Space Grotesk (headings) / Archivo (body)
+ * Style: Editorial engineering. Warm off-black / paper neutrals, one signal
+ * accent (acid lime), hairline rules, grain.
+ * Type:  Geist (UI + headings) / Instrument Serif italic (accent words) /
+ *        Geist Mono (labels, metrics, code)
  *
- * Light-mode values are from the ui-ux-pro-max dataset (products/colors:
- * "Portfolio/Personal"). Dark-mode values are derived, not from the dataset,
- * see design-system.md.
+ * --color-accent is the text-safe accent (≥4.5:1 on background in both
+ * themes). --color-signal is the bright fill used behind dark text.
  * ------------------------------------------------------------------------- */
 
 /* Fonts are loaded via next/font in app/layout.tsx (self-hosted, no external request). */
 
 :root {
   /* Brand */
-  --color-primary: #18181b;
-  --color-on-primary: #ffffff;
-  --color-secondary: #3f3f46;
-  --color-on-secondary: #ffffff;
-  --color-accent: #2563eb;
-  --color-on-accent: #ffffff;
+  --color-primary: #121210;
+  --color-on-primary: #f6f5f0;
+  --color-secondary: #3d3c37;
+  --color-on-secondary: #f6f5f0;
+  --color-accent: #4a6400;
+  --color-on-accent: #121210;
+  --color-signal: #c8f04b;
+  --color-on-signal: #121210;
 
   /* Surfaces */
-  --color-background: #fafafa;
-  --color-foreground: #09090b;
-  --color-card: #ffffff;
-  --color-card-foreground: #09090b;
-  --color-muted: #e8ecf0;
-  --color-muted-foreground: #475569;
+  --color-background: #f6f5f0;
+  --color-foreground: #121210;
+  --color-card: #fdfcf8;
+  --color-card-foreground: #121210;
+  --color-muted: #ebe9e1;
+  --color-muted-foreground: #5c5a52;
 
   /* Lines & states */
-  --color-border: #e4e4e7;
-  --color-ring: #18181b;
-  --color-destructive: #dc2626;
+  --color-border: #dddbd2;
+  --color-border-strong: #c4c1b5;
+  --color-ring: #121210;
+  --color-destructive: #c2410c;
   --color-on-destructive: #ffffff;
+  --color-warn: #a16207;
+  --color-ok: #4a6400;
+
+  /* Ambient glow behind hero / CTA */
+  --glow: rgba(140, 180, 20, 0.16);
+  --grain-opacity: 0.05;
+  --shadow-tint: 40 38 30;
 
   /* Type: font faces are loaded via next/font in app/layout.tsx */
-  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 
-  /* Swiss-style geometry: sharp corners, generous rhythm */
-  --radius: 0px;
+  /* Geometry: tight inner radii, softer containers */
+  --radius: 6px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
   --spacing-unit: 0.5rem;
-  --measure: 68ch;          /* max line length for body copy */
-  --container: 1200px;
+  --measure: 64ch;
+  --container: 1240px;
 
-  /* Motion: single scale, honoured by the reduced-motion block below */
+  /* z-index scale */
+  --z-base: 1;
+  --z-float: 40;
+  --z-nav: 50;
+  --z-grain: 60;
+  --z-loader: 100;
+
+  /* Motion */
   --duration-fast: 150ms;
-  --duration-base: 200ms;
-  --duration-slow: 300ms;
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-base: 220ms;
+  --duration-slow: 400ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Derived dark palette. Backgrounds lifted off pure black so borders read;
-   accent lightened to hold 4.5:1 against the dark surface. */
-:root[data-theme='dark'],
+/* Dark palette: warm charcoal (never pure black), lime signal. */
 :root:not([data-theme='light']) {
   @media (prefers-color-scheme: dark) {
-    --color-primary: #fafafa;
-    --color-on-primary: #09090b;
-    --color-secondary: #a1a1aa;
-    --color-on-secondary: #09090b;
-    --color-accent: #60a5fa;
-    --color-on-accent: #09090b;
+    --color-primary: #f2f1ea;
+    --color-on-primary: #0d0d0c;
+    --color-secondary: #a8a69c;
+    --color-on-secondary: #0d0d0c;
+    --color-accent: #c8f04b;
+    --color-on-accent: #0d0d0c;
+    --color-signal: #c8f04b;
+    --color-on-signal: #0d0d0c;
 
-    --color-background: #09090b;
-    --color-foreground: #fafafa;
-    --color-card: #131316;
-    --color-card-foreground: #fafafa;
-    --color-muted: #1f1f23;
-    --color-muted-foreground: #a1a1aa;
+    --color-background: #0d0d0c;
+    --color-foreground: #f2f1ea;
+    --color-card: #151513;
+    --color-card-foreground: #f2f1ea;
+    --color-muted: #1d1d1a;
+    --color-muted-foreground: #9d9b91;
 
-    --color-border: #27272a;
-    --color-ring: #fafafa;
-    --color-destructive: #f87171;
-    --color-on-destructive: #09090b;
+    --color-border: #262622;
+    --color-border-strong: #3a3934;
+    --color-ring: #c8f04b;
+    --color-destructive: #fb7a4a;
+    --color-on-destructive: #0d0d0c;
+    --color-warn: #f5c04a;
+    --color-ok: #c8f04b;
+
+    --glow: rgba(200, 240, 75, 0.09);
+    --grain-opacity: 0.07;
+    --shadow-tint: 0 0 0;
   }
 }
 
 :root[data-theme='dark'] {
-  --color-primary: #fafafa;
-  --color-on-primary: #09090b;
-  --color-secondary: #a1a1aa;
-  --color-on-secondary: #09090b;
-  --color-accent: #60a5fa;
-  --color-on-accent: #09090b;
+  --color-primary: #f2f1ea;
+  --color-on-primary: #0d0d0c;
+  --color-secondary: #a8a69c;
+  --color-on-secondary: #0d0d0c;
+  --color-accent: #c8f04b;
+  --color-on-accent: #0d0d0c;
+  --color-signal: #c8f04b;
+  --color-on-signal: #0d0d0c;
 
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-card: #131316;
-  --color-card-foreground: #fafafa;
-  --color-muted: #1f1f23;
-  --color-muted-foreground: #a1a1aa;
+  --color-background: #0d0d0c;
+  --color-foreground: #f2f1ea;
+  --color-card: #151513;
+  --color-card-foreground: #f2f1ea;
+  --color-muted: #1d1d1a;
+  --color-muted-foreground: #9d9b91;
 
-  --color-border: #27272a;
-  --color-ring: #fafafa;
-  --color-destructive: #f87171;
-  --color-on-destructive: #09090b;
+  --color-border: #262622;
+  --color-border-strong: #3a3934;
+  --color-ring: #c8f04b;
+  --color-destructive: #fb7a4a;
+  --color-on-destructive: #0d0d0c;
+  --color-warn: #f5c04a;
+  --color-ok: #c8f04b;
+
+  --glow: rgba(200, 240, 75, 0.09);
+  --grain-opacity: 0.07;
+  --shadow-tint: 0 0 0;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
-/* Keyboard focus must stay visible. Swiss style offers no other affordance. */
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-on-signal);
+}
+
+/* Keyboard focus must stay visible. */
 :focus-visible {
   outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
