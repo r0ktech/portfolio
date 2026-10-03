@@ -10,7 +10,7 @@ export const roles: Role[] = [
   {
     title: "Backend Developer Intern",
     org: "Apex Technology Hub & Services Limited, Awka",
-    period: "Sep 2025 – Nov 2025",
+    period: "Sep 2025 - Nov 2025",
     logo: "/logos/apex.jpeg",
     points: [
       "Built and maintained RESTful APIs in Node.js and Express, agreeing request/response contracts with the frontend team up front to eliminate integration rework.",
@@ -21,7 +21,7 @@ export const roles: Role[] = [
   {
     title: "Frontend Developer",
     org: "Elegant Computers",
-    period: "Aug 2021 – Sep 2023",
+    period: "Aug 2021 - Sep 2023",
     points: [
       "Translated design mockups into responsive, cross-browser interfaces across a range of client-facing web projects.",
       "Implemented mobile-first layouts verified down to 320px width, and profiled page performance in Chrome DevTools to cut render-blocking requests.",
@@ -40,13 +40,13 @@ export const volunteering: Volunteering[] = [
   {
     role: "Campus Ambassador",
     org: "Cowrywise",
-    period: "Feb 2026 – Present · 8 mos",
+    period: "Feb 2026 - Present · 8 mos",
     logo: "/logos/cowrywise.png",
   },
   {
     role: "Content Team Lead, UNIZIK",
     org: "Google Developer Student Clubs",
-    period: "Aug 2026 – Present · 2 mos",
+    period: "Aug 2026 - Present · 2 mos",
     logo: "/logos/gdsc.png",
   },
 ];
