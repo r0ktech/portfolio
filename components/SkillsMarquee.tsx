@@ -43,31 +43,28 @@ const stack: { name: string; Icon: IconType; color: string }[] = [
 
 export default function SkillsMarquee() {
   return (
-    <div
-      className="relative mt-16 overflow-hidden border-y border-[var(--color-border)] py-8"
-      style={{
-        maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-      }}
-    >
-      <div className="animate-marquee flex w-max gap-16">
-        {[...stack, ...stack].map((item, i) => (
-          <div
-            key={`${item.name}-${i}`}
-            className="group flex shrink-0 flex-col items-center gap-3"
-          >
-            <item.Icon
-              size={32}
-              aria-hidden
-              style={{ color: item.color }}
-              className="transition-transform duration-200 group-hover:scale-110"
-            />
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--color-muted-foreground)]">
-              {item.name}
-            </span>
-          </div>
-        ))}
+    <div className="mt-20">
+      <p className="eyebrow">Daily toolkit</p>
+      <div className="mask-fade-x relative mt-6 overflow-hidden py-4">
+        <div className="animate-marquee flex w-max gap-4">
+          {[...stack, ...stack].map((item, i) => (
+            <div
+              key={`${item.name}-${i}`}
+              aria-hidden={i >= stack.length || undefined}
+              className="group flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] py-3 pl-4 pr-6 transition-colors duration-300 hover:border-[var(--color-border-strong)]"
+            >
+              <item.Icon
+                size={30}
+                aria-hidden
+                style={{ color: item.color }}
+                className="transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="font-mono text-sm text-[var(--color-muted-foreground)] transition-colors group-hover:text-[var(--color-foreground)]">
+                {item.name}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
