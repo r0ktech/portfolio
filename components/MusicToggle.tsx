@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Volume2, VolumeX } from "lucide-react";
+import { VolumeX } from "lucide-react";
 
 const STORAGE_KEY = "music-off";
 
@@ -81,9 +81,21 @@ export default function MusicToggle() {
         onClick={toggle}
         aria-pressed={isPlaying}
         aria-label={isPlaying ? "Mute background music" : "Play background music"}
-        className="fixed bottom-[4.75rem] right-6 z-40 flex h-11 w-11 cursor-pointer items-center justify-center border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-foreground)] transition-all duration-200 hover:scale-[1.05] hover:border-[var(--color-accent)] hover:bg-[var(--color-muted)] active:scale-[0.95]"
+        className="fixed bottom-[4.75rem] right-6 z-[var(--z-float)] flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] bg-[color-mix(in_oklab,var(--color-card)_80%,transparent)] backdrop-blur-md shadow-[0_10px_30px_-12px_rgb(var(--shadow-tint)/0.35)] text-[var(--color-foreground)] transition-all duration-300 hover:scale-[1.05] hover:border-[var(--color-accent)] hover:bg-[var(--color-muted)] active:scale-[0.95]"
       >
-        {isPlaying ? <Volume2 size={18} aria-hidden /> : <VolumeX size={18} aria-hidden />}
+        {isPlaying ? (
+          <span aria-hidden className="flex h-4 items-end gap-[3px]">
+            {[0, 1, 2, 3].map((i) => (
+              <span
+                key={i}
+                className="animate-eq w-[3px] rounded-full bg-[var(--color-accent)]"
+                style={{ animationDelay: `${i * -0.25}s` }}
+              />
+            ))}
+          </span>
+        ) : (
+          <VolumeX size={17} aria-hidden />
+        )}
       </button>
     </>
   );

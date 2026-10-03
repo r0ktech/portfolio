@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
-
 const COUNTER_URL = "https://abacus.jasoncameron.dev/hit/r0ktech-portfolio/visits";
-
 
 let hasFetchedThisPageLoad = false;
 
@@ -38,12 +36,12 @@ export default function VisitCounter() {
   if (failed) return null;
 
   return (
-    <p className="inline-flex items-center gap-2 border border-[var(--color-border)] px-3 py-1.5 text-xs font-medium uppercase tracking-[0.1em] text-[var(--color-muted-foreground)]">
-      <Eye size={14} aria-hidden className="text-[var(--color-accent)]" />
+    <p className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-3 py-1.5 font-mono text-[11px] text-[var(--color-muted-foreground)]">
+      <Eye size={13} aria-hidden className="text-[var(--color-accent)]" />
       {count === null ? (
-        <span aria-hidden className="inline-block h-3 w-20 animate-pulse bg-[var(--color-muted)]" />
+        <span aria-hidden className="inline-block h-2.5 w-24 animate-pulse rounded-full bg-[var(--color-muted)]" />
       ) : (
-        <span>{count.toLocaleString()} portfolio views</span>
+        <span className="tabular">{count.toLocaleString()} portfolio views</span>
       )}
     </p>
   );

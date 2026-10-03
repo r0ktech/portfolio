@@ -20,7 +20,7 @@ export default function BackToTop() {
       href="#top"
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
-      className={`fixed bottom-6 right-6 z-40 flex h-11 w-11 cursor-pointer items-center justify-center border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-foreground)] transition-all duration-200 hover:scale-[1.05] hover:border-[var(--color-accent)] hover:bg-[var(--color-muted)] active:scale-[0.95] ${
+      className={`fixed bottom-6 right-6 z-[var(--z-float)] flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] bg-[color-mix(in_oklab,var(--color-card)_80%,transparent)] backdrop-blur-md shadow-[0_10px_30px_-12px_rgb(var(--shadow-tint)/0.35)] text-[var(--color-foreground)] transition-all duration-300 hover:scale-[1.05] hover:border-[var(--color-accent)] hover:bg-[var(--color-muted)] active:scale-[0.95] ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
       }`}
     >
