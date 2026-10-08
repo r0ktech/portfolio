@@ -6,9 +6,9 @@ import { useEffect, useState, type PointerEvent } from "react";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
 const chips = [
-  { label: "Next.js", className: "left-2 top-[14%] md:-left-10", delay: "0s" },
+  { label: "JavaScript", className: "left-2 top-[14%] md:-left-10", delay: "0s" },
   { label: "PostgreSQL", className: "right-2 top-[38%] md:-right-8", delay: "-1.2s" },
-  { label: "scikit-learn", className: "left-2 bottom-[18%] md:-left-8", delay: "-2.4s" },
+  { label: "Next.js", className: "left-2 bottom-[18%] md:-left-8", delay: "-2.4s" },
 ];
 
 const lanyardText = "RAPHAEL OKEKE ✳ FULL-STACK DEVELOPER ✳ ".repeat(8);
