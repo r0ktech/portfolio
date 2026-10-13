@@ -32,7 +32,17 @@ function toWeeks(days: ContributionDay[]) {
   return weeks;
 }
 
-type Tip = { text: string; x: number; y: number } | null;
+type Tip = {
+  text: string;
+  x: number;
+  y: number;
+  place: "above" | "below";
+  align: "start" | "center" | "end";
+} | null;
+
+// Room the tooltip needs (px): height + gap above a cell, and half its width.
+const TIP_CLEARANCE_Y = 40;
+const TIP_HALF_WIDTH = 125;
 
 export default function GitHubActivity() {
   const [data, setData] = useState<Activity | null>(null);
@@ -81,15 +91,26 @@ export default function GitHubActivity() {
     return labels.map((l, i) => (l && (labels[i + 1] || labels[i + 2]) ? "" : l));
   }, [weeks]);
 
+  // The grid lives in a sideways-scrolling box, which clips anything outside it.
+  // Flip the tooltip below cells near the top, and align it to the edge for
+  // cells near the visible left/right sides, so it is never cut off.
   function showTip(e: PointerEvent<HTMLSpanElement>, day: ContributionDay) {
     const host = gridRef.current?.getBoundingClientRect();
+    const view = scrollRef.current?.getBoundingClientRect();
     const cell = e.currentTarget.getBoundingClientRect();
-    if (!host) return;
+    if (!host || !view) return;
     const n = day.count;
+    const centerX = cell.left + cell.width / 2;
+    const place = cell.top - view.top < TIP_CLEARANCE_Y ? "below" : "above";
+    const align =
+      centerX - view.left < TIP_HALF_WIDTH ? "start" : view.right - centerX < TIP_HALF_WIDTH ? "end" : "center";
     setTip({
       text: `${n === 0 ? "No" : n} contribution${n === 1 ? "" : "s"} on ${formatDay(day.date)}`,
-      x: cell.left - host.left + cell.width / 2,
-      y: cell.top - host.top,
+      // Edge-aligned tips line up with the cell's own edge, which is always in view.
+      x: (align === "start" ? cell.left : align === "end" ? cell.right : centerX) - host.left,
+      y: (place === "above" ? cell.top : cell.bottom) - host.top,
+      place,
+      align,
     });
   }
 
@@ -229,7 +250,11 @@ export default function GitHubActivity() {
                   <span
                     role="status"
                     style={{ left: tip.x, top: tip.y }}
-                    className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-[calc(100%+8px)] whitespace-nowrap rounded-[6px] bg-[var(--color-primary)] px-2.5 py-1.5 font-mono text-[11px] text-[var(--color-on-primary)] shadow-lg"
+                    className={`pointer-events-none absolute z-10 whitespace-nowrap ${
+                      tip.place === "above" ? "-translate-y-[calc(100%+8px)]" : "translate-y-2"
+                    } ${
+                      tip.align === "center" ? "-translate-x-1/2" : tip.align === "end" ? "-translate-x-full" : ""
+                    } rounded-[6px] bg-[var(--color-primary)] px-2.5 py-1.5 font-mono text-[11px] text-[var(--color-on-primary)] shadow-lg`}
                   >
                     {tip.text}
                   </span>
