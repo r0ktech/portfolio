@@ -20,7 +20,7 @@ export default function Contact() {
 
       <div className="container-portfolio">
         <Reveal>
-          <p className="eyebrow">06 / Let&apos;s build something</p>
+          <p className="eyebrow">05 / Let&apos;s build something</p>
         </Reveal>
 
         <Reveal delay={0.05}>

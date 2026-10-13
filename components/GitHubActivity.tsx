@@ -99,7 +99,7 @@ export default function GitHubActivity() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Reveal>
-              <p className="eyebrow">05 / In the commits</p>
+              <p className="eyebrow">04 / In the commits</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-6 max-w-3xl text-[clamp(2.2rem,5vw,4rem)] font-semibold text-[var(--color-foreground)]">

@@ -15,11 +15,11 @@ export default function ProjectGrid() {
         <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-[1fr_auto]">
           <div>
             <Reveal>
-              <p className="eyebrow">04 / The range</p>
+              <p className="eyebrow">03 / The work</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-6 max-w-3xl text-[clamp(2.2rem,5vw,4rem)] font-semibold text-[var(--color-foreground)]">
-                More things I&apos;ve shipped, <span className="serif-accent text-[var(--color-accent)]">end to end.</span>
+                Things I&apos;ve shipped, <span className="serif-accent text-[var(--color-accent)]">end to end.</span>
               </h2>
             </Reveal>
           </div>

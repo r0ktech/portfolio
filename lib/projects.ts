@@ -7,46 +7,25 @@ export type Project = {
   screenshot?: string;
 };
 
-export const featuredProject = {
-  name: "ThreatGuard AI",
-  tagline: "Machine learning threat intelligence for big-data security",
-  description:
-    "An enterprise-style cybersecurity dashboard that ingests security logs (firewall, network, login, email, web, cloud, file-access, user-activity), scores every record with a trained RandomForestClassifier, and surfaces the results as live threat intelligence: dashboards, geo attack maps, ML performance metrics, alerting, and downloadable PDF/CSV reports.",
-  problem:
-    "Security teams drown in log volume long before they can act on it. Raw firewall and network events carry signal, but turning that signal into a Safe / Suspicious / Malicious call, fast enough to matter, means owning the full path from ingestion to inference to the analyst's screen.",
-  approach: [
-    "Generated ~15,000 label-conditioned synthetic security logs so the model learns real attack signal (failed logins, unusual ports, packet size, VPN state) rather than noise.",
-    "Trained a scikit-learn pipeline (one-hot encoding + a 250-tree RandomForestClassifier) on an 80/20 stratified split, and shipped it behind a FastAPI service exposing /predict, /predict/batch, and /metrics.",
-    "Built the Node/Express API layer to persist every prediction to PostgreSQL via Prisma, enforce JWT auth with role-based access (Admin / Analyst / Viewer), and stream live-traffic scoring over SSE.",
-    "Shipped the Next.js dashboard: threat detection, live monitoring feed, ML performance charts (confusion matrix, ROC/AUC, feature importance), geo attack maps, alerting, and PDF/CSV reporting.",
-  ],
-  stack: [
-    "Next.js 15",
-    "React 19",
-    "TypeScript",
-    "Tailwind CSS v4",
-    "shadcn/ui",
-    "Framer Motion",
-    "Node.js / Express",
-    "Prisma / PostgreSQL",
-    "FastAPI",
-    "scikit-learn",
-  ],
-  result:
-    "A working full-stack + ML systems prototype: JWT/RBAC-secured API, a trained classifier serving real-time predictions, and a SOC-style interface (including a live command palette and a rule-based threat assistant) built on live backend data end to end.",
-  repoUrl: "https://github.com/r0ktech/Threat-Guard",
-} satisfies {
-  name: string;
-  tagline: string;
-  description: string;
-  problem: string;
-  approach: string[];
-  stack: string[];
-  result: string;
-  repoUrl: string;
-};
-
 export const projects: Project[] = [
+  {
+    name: "Veyro",
+    description:
+      "An online store for laptops, phones and accessories. Products, carts and orders live in Supabase Postgres behind row-level security, checkout runs as one transaction that prices items from the database and locks stock, Google sign-in handles accounts, Mailgun sends order confirmations, and an Expo app shares the same cart in real time.",
+    stack: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL", "Google OAuth", "Mailgun", "Expo"],
+    repoUrl: "https://github.com/r0ktech/Veyro",
+    liveUrl: "https://veyro-kohl.vercel.app",
+    screenshot: "/screenshots/veyro.png",
+  },
+  {
+    name: "PostFit",
+    description:
+      "Prepares up to 20 images for X carousel posts, entirely in the browser. Seamless mode splits pictures across slides so a swipe reads as one continuous image, a content-aware smart crop pads text and screenshots instead of cutting them, and a live X preview, JPG/PNG/WebP export and ZIP download finish the job. Nothing is uploaded.",
+    stack: ["Next.js", "React", "Canvas API", "JSZip", "dnd-kit", "Tailwind CSS"],
+    repoUrl: "https://github.com/r0ktech/PostFit",
+    liveUrl: "https://post-fit-sooty.vercel.app",
+    screenshot: "/screenshots/postfit.png",
+  },
   {
     name: "Knowledge Management System",
     description:

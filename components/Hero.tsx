@@ -49,21 +49,21 @@ export default function Hero() {
             I take ideas from database schema to pixel-perfect UI, and wire in machine
             learning where it earns its place. Most recently:{" "}
             <a
-              href="#work"
+              href="#projects"
               className="text-[var(--color-foreground)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent)]"
             >
-              ThreatGuard AI
+              Veyro
             </a>
-            , a security dashboard that scores logs with a trained classifier in real time.
+            , a full-stack tech store with Google sign-in, transactional checkout and a companion mobile app.
           </p>
 
           <div className="animate-fade-in-up mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 [animation-delay:520ms]">
             <Magnetic>
               <a
-                href="#work"
+                href="#projects"
                 className="group inline-flex items-center gap-3 rounded-full bg-[var(--color-primary)] py-2 pl-6 pr-2 text-sm font-medium text-[var(--color-on-primary)] shadow-[0_14px_40px_-14px_rgb(var(--shadow-tint)/0.55)] transition-transform duration-200 active:scale-[0.97]"
               >
-                See the case study
+                See my work
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-signal)] text-[var(--color-on-signal)] transition-transform duration-300 group-hover:rotate-[-45deg]">
                   <ArrowRight size={16} aria-hidden />
                 </span>

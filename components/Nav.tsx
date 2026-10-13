@@ -10,7 +10,6 @@ import { links } from "@/lib/projects";
 const sections = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
-  { id: "work", label: "Case study" },
   { id: "projects", label: "Projects" },
   { id: "github", label: "GitHub" },
   { id: "contact", label: "Contact" },
