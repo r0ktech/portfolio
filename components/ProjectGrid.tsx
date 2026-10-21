@@ -32,19 +32,25 @@ export default function ProjectGrid() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-12">
-          {projects.map((project, i) => (
-            <Reveal key={project.name} delay={0.06 * (i % 2)} className={spans[i % spans.length]}>
+          {projects.map((project, i) => {
+            // With an odd count the last card would sit alone on its row; let it
+            // span the full width and lay out side by side instead.
+            const lone = projects.length % 2 === 1 && i === projects.length - 1;
+            return (
+            <Reveal key={project.name} delay={0.06 * (i % 2)} className={lone ? "lg:col-span-12" : spans[i % spans.length]}>
               <Spotlight
                 as="article"
-                className="group flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1"
+                className={`group flex h-full flex-col ${lone ? "lg:flex-row lg:items-stretch" : ""} overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1`}
               >
-                {project.liveUrl && project.screenshot ? (
-                  <ProjectPreview name={project.name} liveUrl={project.liveUrl} screenshot={project.screenshot} />
-                ) : (
-                  <ApiPreview name={project.name} />
-                )}
+                <div className={lone ? "lg:w-[58%] lg:shrink-0" : ""}>
+                  {project.liveUrl && project.screenshot ? (
+                    <ProjectPreview name={project.name} liveUrl={project.liveUrl} screenshot={project.screenshot} />
+                  ) : (
+                    <ApiPreview name={project.name} />
+                  )}
+                </div>
 
-                <div className="flex flex-1 flex-col justify-between px-3 pb-3 pt-6">
+                <div className={`flex flex-1 flex-col justify-between px-3 pb-3 pt-6 ${lone ? "lg:px-8 lg:pt-4" : ""}`}>
                   <div>
                     <div className="flex items-baseline justify-between gap-4">
                       <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-card-foreground)]">
@@ -100,7 +106,8 @@ export default function ProjectGrid() {
                 </div>
               </Spotlight>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
