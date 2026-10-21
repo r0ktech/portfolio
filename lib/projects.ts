@@ -9,6 +9,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Trusta",
+    description:
+      "A marketplace for finding reliable artisans and service professionals in Nigeria: search and filter by trade and location, compare profiles, portfolios and reviews, request bookings and message providers, plus a separate provider dashboard. A frontend-only MVP running on sample data, with every action persisted locally.",
+    stack: ["React", "Vite", "React Router", "React Hook Form", "Tailwind CSS", "Recharts"],
+    repoUrl: "https://github.com/r0ktech/Trusta",
+    liveUrl: "https://trusta-ten.vercel.app",
+    screenshot: "/screenshots/trusta.png",
+  },
+  {
     name: "Veyro",
     description:
       "An online store for laptops, phones and accessories. Products, carts and orders live in Supabase Postgres behind row-level security, checkout runs as one transaction that prices items from the database and locks stock, Google sign-in handles accounts, Mailgun sends order confirmations, and an Expo app shares the same cart in real time.",
