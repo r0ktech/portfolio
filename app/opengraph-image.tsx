@@ -34,10 +34,10 @@ export default async function OpengraphImage() {
             Raphael Okeke
           </div>
           <div style={{ fontSize: 40, lineHeight: 1.25, marginTop: 28, color: "#c8f04b" }}>
-            I build the whole product: interface, API & the model.
+            I build the whole product: interface, API & the data.
           </div>
           <div style={{ fontSize: 24, marginTop: 36, color: "#9d9b91" }}>
-            Next.js · Node.js · PostgreSQL · scikit-learn
+            Next.js · Node.js · PostgreSQL · TypeScript
           </div>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}

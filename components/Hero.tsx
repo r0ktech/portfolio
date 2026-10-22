@@ -41,13 +41,13 @@ export default function Hero() {
               </span>
             </span>
             <span className="line-mask">
-              <span className="line-inner serif-accent [animation-delay:280ms]">API &amp; the model.</span>
+              <span className="line-inner serif-accent [animation-delay:280ms]">API &amp; the data.</span>
             </span>
           </h1>
 
           <p className="animate-fade-in-up mt-8 max-w-[56ch] text-lg leading-relaxed text-[var(--color-muted-foreground)] [animation-delay:420ms]">
-            I take ideas from database schema to pixel-perfect UI, and wire in machine
-            learning where it earns its place. Most recently:{" "}
+            I take ideas from database schema to pixel-perfect UI, and own every layer in
+            between. Most recently:{" "}
             <a
               href="#projects"
               className="text-[var(--color-foreground)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent)]"

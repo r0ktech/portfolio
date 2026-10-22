@@ -26,7 +26,7 @@ const instrumentSerif = Instrument_Serif({
 
 const title = "Raphael Okeke, Full-Stack Developer";
 const description =
-  "Full-stack developer who ships whole products: Next.js interfaces, Node/Postgres APIs, and the ML models behind them. Based in Awka, Nigeria.";
+  "Full-stack developer who ships whole products: Next.js interfaces and the Node/Postgres APIs behind them. Based in Awka, Nigeria.";
 
 // Absolute base for OG/Twitter image URLs. Vercel sets the production host automatically.
 const siteUrl =
@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     "React",
     "Node.js",
     "PostgreSQL",
-    "machine learning",
     "Nigeria",
   ],
   openGraph: {
