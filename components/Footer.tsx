@@ -44,7 +44,6 @@ export default function Footer() {
 
       <div className="container-portfolio flex flex-col justify-between gap-2 py-6 font-mono text-[11px] text-[var(--color-muted-foreground)] sm:flex-row">
         <p>&copy; {new Date().getFullYear()} Raphael Okeke. All rights reserved.</p>
-        <p>Built with Next.js, Tailwind CSS &amp; Framer Motion.</p>
       </div>
     </footer>
   );
