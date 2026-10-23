@@ -1,6 +1,5 @@
 import Reveal from "./Reveal";
 import ScrollText from "./ScrollText";
-import SkillsBento from "./SkillsBento";
 import SkillsMarquee from "./SkillsMarquee";
 
 export default function About() {
@@ -34,8 +33,6 @@ export default function About() {
             </Reveal>
           </div>
         </div>
-
-        <SkillsBento />
 
         <Reveal delay={0.1}>
           <SkillsMarquee />
