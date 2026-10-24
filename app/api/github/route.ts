@@ -7,10 +7,11 @@ import { GITHUB_USER, type ContributionDay, type GitHubActivity } from "@/lib/gi
 export const dynamic = "force-dynamic";
 
 const SIX_HOURS = 60 * 60 * 6;
+const HALF_HOUR = 60 * 30;
 
 export async function GET() {
   try {
-    const [contribRes, userRes] = await Promise.all([
+    const [contribRes, userRes, eventsRes] = await Promise.all([
       // Public scrape of the profile contribution calendar; no token needed.
       fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=last`, {
         next: { revalidate: SIX_HOURS },
@@ -19,6 +20,12 @@ export async function GET() {
       fetch(`https://api.github.com/users/${GITHUB_USER}`, {
         headers: { Accept: "application/vnd.github+json" },
         next: { revalidate: SIX_HOURS },
+        signal: AbortSignal.timeout(15_000),
+      }).catch(() => null),
+      // Recent public activity, refreshed more often so "last push" stays truthful.
+      fetch(`https://api.github.com/users/${GITHUB_USER}/events/public?per_page=30`, {
+        headers: { Accept: "application/vnd.github+json" },
+        next: { revalidate: HALF_HOUR },
         signal: AbortSignal.timeout(15_000),
       }).catch(() => null),
     ]);
@@ -31,15 +38,23 @@ export async function GET() {
 
     const user = userRes?.ok ? ((await userRes.json()) as { public_repos?: number; followers?: number }) : null;
 
+    const events = eventsRes?.ok
+      ? ((await eventsRes.json()) as { type: string; created_at: string; repo: { name: string } }[])
+      : [];
+    const push = events
+      .filter((e) => e.type === "PushEvent")
+      .sort((a, b) => b.created_at.localeCompare(a.created_at))[0];
+
     const body: GitHubActivity = {
       total: contrib.total.lastYear,
       days: contrib.contributions,
       publicRepos: user?.public_repos ?? null,
       followers: user?.followers ?? null,
+      lastPush: push ? { repo: push.repo.name.split("/")[1], at: push.created_at } : null,
     };
 
     return NextResponse.json(body, {
-      headers: { "Cache-Control": `public, s-maxage=${SIX_HOURS}, stale-while-revalidate=${SIX_HOURS}` },
+      headers: { "Cache-Control": `public, s-maxage=${HALF_HOUR}, stale-while-revalidate=${SIX_HOURS}` },
     });
   } catch {
     return NextResponse.json({ error: "GitHub activity is unavailable right now." }, { status: 502 });

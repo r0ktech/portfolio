@@ -5,7 +5,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
-import { GITHUB_USER, streaks, type ContributionDay, type GitHubActivity as Activity } from "@/lib/github";
+import { GITHUB_USER, streaks, timeAgo, type ContributionDay, type GitHubActivity as Activity } from "@/lib/github";
 import { links } from "@/lib/projects";
 
 const levelColor = [
@@ -120,11 +120,11 @@ export default function GitHubActivity() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Reveal>
-              <p className="eyebrow">04 / In the commits</p>
+              <p className="eyebrow">05 — In the commits</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-6 max-w-3xl text-[clamp(2.2rem,5vw,4rem)] font-semibold text-[var(--color-foreground)]">
-                Building in public, <span className="serif-accent text-[var(--color-accent)]">one commit at a time.</span>
+                Building in public, <span className="serif-accent text-[var(--color-foreground)]">one commit at a time.</span>
               </h2>
             </Reveal>
           </div>
@@ -264,7 +264,30 @@ export default function GitHubActivity() {
 
             {/* Legend */}
             <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-5 font-mono text-[11px] text-[var(--color-muted-foreground)]">
-              <span>Live from GitHub, refreshed every few hours</span>
+              <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                {data?.lastPush ? (
+                  <span className="flex items-center gap-2 text-[var(--color-foreground)]">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping-soft absolute inset-0 rounded-full bg-[var(--color-ok)]" />
+                      <span className="relative h-1.5 w-1.5 rounded-full bg-[var(--color-ok)]" />
+                    </span>
+                    Last push{" "}
+                    <time dateTime={data.lastPush.at} title={new Date(data.lastPush.at).toLocaleString()}>
+                      {timeAgo(data.lastPush.at)}
+                    </time>{" "}
+                    to{" "}
+                    <a
+                      href={`${links.github}/${data.lastPush.repo}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-[var(--color-border-strong)] underline-offset-2 hover:decoration-[var(--color-foreground)]"
+                    >
+                      {data.lastPush.repo}
+                    </a>
+                  </span>
+                ) : null}
+                <span>Live from GitHub</span>
+              </span>
               <span className="flex items-center gap-1.5">
                 Less
                 {levelColor.map((c, i) => (
