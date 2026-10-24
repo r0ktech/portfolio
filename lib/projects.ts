@@ -5,6 +5,8 @@ export type Project = {
   repoUrl: string;
   liveUrl?: string;
   screenshot?: string;
+  /** Path to an in-depth case study page, if there is one. */
+  caseStudy?: string;
 };
 
 export const projects: Project[] = [
@@ -25,6 +27,7 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/r0ktech/Veyro",
     liveUrl: "https://veyro-kohl.vercel.app",
     screenshot: "/screenshots/veyro.png",
+    caseStudy: "/work/veyro",
   },
   {
     name: "PostFit",

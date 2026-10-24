@@ -1,4 +1,5 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import Reveal from "./Reveal";
 import Spotlight from "./Spotlight";
 import ProjectPreview from "./ProjectPreview";
@@ -15,11 +16,11 @@ export default function ProjectGrid() {
         <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-[1fr_auto]">
           <div>
             <Reveal>
-              <p className="eyebrow">03 / The work</p>
+              <p className="eyebrow">03 — The work</p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-6 max-w-3xl text-[clamp(2.2rem,5vw,4rem)] font-semibold text-[var(--color-foreground)]">
-                Things I&apos;ve shipped, <span className="serif-accent text-[var(--color-accent)]">end to end.</span>
+                Things I&apos;ve shipped, <span className="serif-accent text-[var(--color-foreground)]">end to end.</span>
               </h2>
             </Reveal>
           </div>
@@ -75,7 +76,17 @@ export default function ProjectGrid() {
                     </ul>
                   </div>
 
-                  <div className="mt-6 flex items-center gap-2 border-t border-[var(--color-border)] pt-4">
+                  <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-[var(--color-border)] pt-4">
+                    {project.caseStudy && (
+                      <Link
+                        href={project.caseStudy}
+                        className="group/link inline-flex items-center gap-1.5 rounded-full bg-[var(--color-signal)] px-4 py-2 text-[13px] font-medium text-[var(--color-on-signal)] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]"
+                      >
+                        Read case study
+                        <ArrowRight size={14} aria-hidden className="transition-transform duration-300 group-hover/link:translate-x-0.5" />
+                        <span className="sr-only">: {project.name}</span>
+                      </Link>
+                    )}
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
