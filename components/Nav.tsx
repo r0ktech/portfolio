@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ArrowUpRight, Moon, Sun } from "lucide-react";
 import ScrollProgress from "./ScrollProgress";
+import { OPEN_PALETTE_EVENT, TOGGLE_THEME_EVENT } from "./CommandPalette";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 import { links } from "@/lib/projects";
 
@@ -73,15 +74,24 @@ export default function Nav() {
   }, [menuOpen]);
 
   function toggleTheme() {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem("theme", next);
-    } catch {
-      // ignore
-    }
+    setTheme((current) => {
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch {
+        // ignore
+      }
+      return next;
+    });
   }
+
+  // The command palette toggles the theme through this event.
+  useEffect(() => {
+    const onToggle = () => toggleTheme();
+    window.addEventListener(TOGGLE_THEME_EVENT, onToggle);
+    return () => window.removeEventListener(TOGGLE_THEME_EVENT, onToggle);
+  }, []);
 
   return (
     <>
@@ -140,6 +150,14 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_PALETTE_EVENT))}
+              aria-label="Open command palette"
+              className="hidden h-9 cursor-pointer items-center gap-1.5 rounded-full border border-[var(--color-border)] px-3 font-mono text-[11px] text-[var(--color-muted-foreground)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-foreground)] lg:flex"
+            >
+              <span className="text-[13px] leading-none">⌘</span>K
+            </button>
             <button
               type="button"
               onClick={toggleTheme}
@@ -222,7 +240,7 @@ export default function Nav() {
                     transition={{ duration: 0.6, delay: 0.15 + i * 0.05, ease }}
                     className="flex items-baseline gap-4 py-1 text-[2.6rem] font-semibold leading-tight tracking-[-0.04em] text-[var(--color-foreground)]"
                   >
-                    <span className="font-mono text-xs font-normal tracking-normal text-[var(--color-accent)]">
+                    <span className="font-mono text-xs font-normal tracking-normal text-[var(--color-muted-foreground)]">
                       0{i + 1}
                     </span>
                     {s.label}

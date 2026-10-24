@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "@/components/LoadingScreen";
 import MusicToggle from "@/components/MusicToggle";
+import CommandPalette from "@/components/CommandPalette";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ const instrumentSerif = Instrument_Serif({
 
 const title = "Raphael Okeke, Full-Stack Developer";
 const description =
-  "Full-stack developer who ships whole products: Next.js interfaces and the Node/Postgres APIs behind them. Based in Awka, Nigeria.";
+  "Full-stack developer who ships whole products: Next.js interfaces and the Node/Postgres APIs behind them.";
 
 // Absolute base for OG/Twitter image URLs. Vercel sets the production host automatically.
 const siteUrl =
@@ -109,6 +110,7 @@ export default function RootLayout({
         <LoadingScreen />
         {children}
         <MusicToggle />
+        <CommandPalette />
         <div aria-hidden className="grain" />
       </body>
     </html>
