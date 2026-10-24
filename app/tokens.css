@@ -17,7 +17,7 @@
   --color-on-primary: #f6f5f0;
   --color-secondary: #3d3c37;
   --color-on-secondary: #f6f5f0;
-  --color-accent: #4a6400;
+  --color-accent: #437a0b;
   --color-on-accent: #121210;
   --color-signal: #c8f04b;
   --color-on-signal: #121210;
@@ -37,10 +37,10 @@
   --color-destructive: #c2410c;
   --color-on-destructive: #ffffff;
   --color-warn: #a16207;
-  --color-ok: #4a6400;
+  --color-ok: #167a43;
 
   /* Ambient glow behind hero / CTA */
-  --glow: rgba(140, 180, 20, 0.16);
+  --glow: rgba(67, 122, 11, 0.12);
   --grain-opacity: 0.05;
   --shadow-tint: 40 38 30;
 
@@ -97,7 +97,7 @@
     --color-destructive: #fb7a4a;
     --color-on-destructive: #0d0d0c;
     --color-warn: #f5c04a;
-    --color-ok: #c8f04b;
+    --color-ok: #62c08a;
 
     --glow: rgba(200, 240, 75, 0.09);
     --grain-opacity: 0.07;
@@ -128,7 +128,7 @@
   --color-destructive: #fb7a4a;
   --color-on-destructive: #0d0d0c;
   --color-warn: #f5c04a;
-  --color-ok: #c8f04b;
+  --color-ok: #62c08a;
 
   --glow: rgba(200, 240, 75, 0.09);
   --grain-opacity: 0.07;

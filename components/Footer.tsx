@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
           <a href="#top" className="group flex items-center gap-2 transition-colors hover:text-[var(--color-foreground)]">
             Back to top
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-border)] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--color-accent)]">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-border)] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--color-border-strong)]">
               <ArrowUp size={12} aria-hidden />
             </span>
           </a>

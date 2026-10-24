@@ -1,7 +1,6 @@
 import { ArrowUpRight, FileText, Github, Linkedin } from "lucide-react";
 import Reveal from "./Reveal";
 import CopyEmail from "./CopyEmail";
-import LocalTime from "./LocalTime";
 import { links } from "@/lib/projects";
 
 const channels = [
@@ -20,7 +19,7 @@ export default function Contact() {
 
       <div className="container-portfolio">
         <Reveal>
-          <p className="eyebrow">05 / Let&apos;s build something</p>
+          <p className="eyebrow">06 — Let&apos;s build something</p>
         </Reveal>
 
         <Reveal delay={0.05}>
@@ -38,15 +37,6 @@ export default function Contact() {
 
         <Reveal delay={0.15} className="mt-12">
           <CopyEmail email={links.email} />
-          <p className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] text-[var(--color-muted-foreground)]">
-            <span className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-signal)]" />
-              Awka, Nigeria
-            </span>
-            <span className="text-[var(--color-foreground)]">
-              Local time <LocalTime />
-            </span>
-          </p>
         </Reveal>
 
         <Reveal delay={0.2} className="mt-16">

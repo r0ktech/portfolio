@@ -45,10 +45,13 @@ function Word({
   accent: boolean;
   reduce: boolean;
 }) {
-  const opacity = useTransform(progress, range, [0.14, 1]);
+  // Brighten from the muted text colour (still 7:1 contrast) to full, rather than
+  // fading from near-invisible, so the paragraph is always readable.
+  const mix = useTransform(progress, range, [0, 100]);
+  const color = useTransform(mix, (m) => `color-mix(in oklab, var(--color-foreground) ${m}%, var(--color-muted-foreground))`);
   return (
-    <span className={`mr-[0.25em] ${accent ? "serif-accent text-[var(--color-accent)]" : ""}`}>
-      <motion.span style={reduce ? undefined : { opacity }}>{children}</motion.span>
+    <span className={`mr-[0.25em] ${accent ? "serif-accent" : ""}`}>
+      <motion.span style={reduce ? undefined : { color }}>{children}</motion.span>
     </span>
   );
 }

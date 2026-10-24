@@ -9,7 +9,7 @@ const endpoints = [
 
 const methodColor: Record<string, string> = {
   GET: "text-[var(--color-ok)]",
-  POST: "text-[var(--color-accent)]",
+  POST: "text-[var(--color-foreground)]",
   PATCH: "text-[var(--color-warn)]",
 };
 
@@ -46,8 +46,8 @@ export default function ApiPreview({ name }: { name: string }) {
           </div>
         ))}
         <p className="pt-1 text-[var(--color-muted-foreground)]">
-          <span className="text-[var(--color-accent)]">$</span> 4 tables &middot; 5-state pipeline
-          <span className="animate-caret ml-1 inline-block h-3 w-1.5 translate-y-0.5 bg-[var(--color-accent)]" />
+          <span className="text-[var(--color-muted-foreground)]">$</span> 4 tables &middot; 5-state pipeline
+          <span className="animate-caret ml-1 inline-block h-3 w-1.5 translate-y-0.5 bg-[var(--color-muted-foreground)]" />
         </p>
       </div>
     </div>

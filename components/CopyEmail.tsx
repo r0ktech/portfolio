@@ -48,7 +48,7 @@ export default function CopyEmail({ email }: { email: string }) {
           >
             {state === "copied" ? (
               <>
-                <Check size={14} aria-hidden className="text-[var(--color-accent)]" /> Copied
+                <Check size={14} aria-hidden className="text-[var(--color-ok)]" /> Copied
               </>
             ) : state === "failed" ? (
               <>Copy failed. Select it manually.</>

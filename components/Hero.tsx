@@ -49,7 +49,7 @@ export default function Hero() {
             I take ideas from database schema to pixel-perfect UI, and own every layer in
             between. Most recently:{" "}
             <a
-              href="#projects"
+              href="/work/veyro"
               className="text-[var(--color-foreground)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent)]"
             >
               Veyro
@@ -88,7 +88,6 @@ export default function Hero() {
       <div className="container-portfolio pb-10">
         <a
           href="#about"
-          aria-label="Scroll to about"
           className="group flex w-fit items-center gap-2 font-mono text-[11px] text-[var(--color-muted-foreground)] transition-colors hover:text-[var(--color-foreground)]"
         >
           <span className="flex h-8 w-5 justify-center rounded-full border border-[var(--color-border-strong)] pt-1.5">

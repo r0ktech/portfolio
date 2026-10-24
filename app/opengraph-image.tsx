@@ -28,7 +28,7 @@ export default async function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 24, color: "#9d9b91" }}>
             <div style={{ width: 12, height: 12, borderRadius: 999, background: "#c8f04b" }} />
-            Full-stack developer · Awka, Nigeria
+            Full-stack developer
           </div>
           <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -3, lineHeight: 1, marginTop: 28 }}>
             Raphael Okeke

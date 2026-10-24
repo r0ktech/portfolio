@@ -17,7 +17,7 @@ export default function Timeline({ children }: { children: ReactNode }) {
       <motion.span
         aria-hidden
         style={{ scaleY: reduce ? 1 : scaleY }}
-        className="absolute bottom-2 left-[7px] top-2 w-px origin-top bg-[var(--color-accent)]"
+        className="absolute bottom-2 left-[7px] top-2 w-px origin-top bg-[var(--color-foreground)]"
       />
       {children}
     </ol>

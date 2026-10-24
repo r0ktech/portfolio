@@ -20,11 +20,11 @@ export default function Experience() {
       <div className="container-portfolio grid grid-cols-1 gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            <p className="eyebrow">02 / The journey</p>
+            <p className="eyebrow">02 — The journey</p>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-6 text-[clamp(2.2rem,5vw,4rem)] font-semibold text-[var(--color-foreground)]">
-              Shipping real code for <span className="serif-accent text-[var(--color-accent)]">real teams.</span>
+              Shipping real code for <span className="serif-accent text-[var(--color-foreground)]">real teams.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -40,7 +40,7 @@ export default function Experience() {
                 <Logo src={education.logo} alt={`${education.school} logo`} />
                 <div>
                   <p className="flex items-center gap-1.5 font-mono text-[11px] text-[var(--color-muted-foreground)]">
-                    <GraduationCap size={13} aria-hidden className="text-[var(--color-accent)]" />
+                    <GraduationCap size={13} aria-hidden />
                     Education &middot; {education.period}
                   </p>
                   <h3 className="mt-0.5 text-lg font-semibold tracking-tight text-[var(--color-card-foreground)]">
@@ -68,11 +68,11 @@ export default function Experience() {
               <Reveal as="li" key={role.title} delay={0.05 * i} className="relative">
                 <span
                   aria-hidden
-                  className="absolute -left-10 top-1 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-[var(--color-accent)] bg-[var(--color-background)]"
+                  className="absolute -left-10 top-1 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-[var(--color-foreground)] bg-[var(--color-background)]"
                 >
-                  <span className="h-[5px] w-[5px] rounded-full bg-[var(--color-accent)]" />
+                  <span className="h-[5px] w-[5px] rounded-full bg-[var(--color-foreground)]" />
                 </span>
-                <p className="font-mono text-xs text-[var(--color-accent)]">{role.period}</p>
+                <p className="font-mono text-xs text-[var(--color-muted-foreground)]">{role.period}</p>
                 <div className="mt-3 flex items-center gap-3">
                   {role.logo ? (
                     <Logo src={role.logo} alt={`${role.org} logo`} />
@@ -110,7 +110,7 @@ export default function Experience() {
                 aria-hidden
                 className="absolute -left-10 top-1 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-[var(--color-background)]"
               />
-              <p className="flex items-center gap-2 font-mono text-xs text-[var(--color-accent)]">
+              <p className="flex items-center gap-2 font-mono text-xs text-[var(--color-muted-foreground)]">
                 <HeartHandshake size={13} aria-hidden />
                 Community &amp; volunteering
               </p>

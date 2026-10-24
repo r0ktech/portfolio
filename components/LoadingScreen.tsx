@@ -2,9 +2,9 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 
-const PROGRESS_MS = 1300;
-const HOLD_MS = 200;
-const EXIT_MS = 800;
+const PROGRESS_MS = 700;
+const HOLD_MS = 100;
+const EXIT_MS = 600;
 
 type Phase = "loading" | "exiting" | "done";
 
@@ -76,7 +76,7 @@ export default function LoadingScreen() {
     <div
       aria-hidden
       data-loader
-      className={`fixed inset-0 z-[var(--z-loader)] flex flex-col justify-between bg-[var(--color-background)] p-6 transition-transform duration-[800ms] ease-[cubic-bezier(0.76,0,0.24,1)] md:p-10 ${
+      className={`fixed inset-0 z-[var(--z-loader)] flex flex-col justify-between bg-[var(--color-background)] p-6 transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)] md:p-10 ${
         exiting ? "-translate-y-full" : "translate-y-0"
       }`}
     >

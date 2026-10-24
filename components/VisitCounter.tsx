@@ -37,7 +37,7 @@ export default function VisitCounter() {
 
   return (
     <p className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-3 py-1.5 font-mono text-[11px] text-[var(--color-muted-foreground)]">
-      <Eye size={13} aria-hidden className="text-[var(--color-accent)]" />
+      <Eye size={13} aria-hidden className="text-[var(--color-muted-foreground)]" />
       {count === null ? (
         <span aria-hidden className="inline-block h-2.5 w-24 animate-pulse rounded-full bg-[var(--color-muted)]" />
       ) : (

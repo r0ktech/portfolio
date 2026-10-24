@@ -5,12 +5,6 @@ import { animate, motion, useMotionValue, useSpring, useTransform, type PanInfo 
 import { useEffect, useState, type PointerEvent } from "react";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
-const chips = [
-  { label: "JavaScript", className: "left-2 top-[14%] md:-left-10", delay: "0s" },
-  { label: "PostgreSQL", className: "right-2 top-[38%] md:-right-8", delay: "-1.2s" },
-  { label: "Next.js", className: "left-2 bottom-[18%] md:-left-8", delay: "-2.4s" },
-];
-
 const lanyardText = "RAPHAEL OKEKE ✳ FULL-STACK DEVELOPER ✳ ".repeat(8);
 
 /** True once the intro loader has lifted (layout.tsx sets data-intro on <html> while it plays). */
@@ -161,23 +155,9 @@ export default function PortraitCard() {
               <span className="block text-[13px] font-semibold leading-tight tracking-tight text-white">Raphael Okeke</span>
               <span className="block font-mono text-[10px] text-white/70">Full-stack developer</span>
             </span>
-            <span className="flex items-center gap-1.5 font-mono text-[11px] text-white/85">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#c8f04b]" />
-              Awka, NG
-            </span>
           </div>
         </motion.div>
 
-        {chips.map((chip) => (
-          <span
-            key={chip.label}
-            aria-hidden
-            style={{ animationDelay: chip.delay }}
-            className={`animate-bob absolute ${chip.className} rounded-full border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 font-mono text-[11px] text-[var(--color-foreground)] shadow-[0_10px_30px_-12px_rgb(var(--shadow-tint)/0.4)]`}
-          >
-            {chip.label}
-          </span>
-        ))}
       </div>
     </motion.div>
   );

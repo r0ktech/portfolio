@@ -8,7 +8,7 @@ export default function About() {
       <div className="container-portfolio">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[200px_1fr]">
           <Reveal>
-            <p className="eyebrow">01 / The problem</p>
+            <p className="eyebrow">01 — The problem</p>
           </Reveal>
 
           <div>
