@@ -27,9 +27,7 @@ type Command = {
   run: () => void;
 };
 
-/** Event other components dispatch to open the palette (e.g. the nav hint). */
 export const OPEN_PALETTE_EVENT = "open-command-palette";
-/** Event the nav listens for so the theme icon stays in sync. */
 export const TOGGLE_THEME_EVENT = "toggle-theme";
 
 function goToSection(id: string) {
