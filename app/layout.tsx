@@ -1,13 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import LoadingScreen from "@/components/LoadingScreen";
-import MusicToggle from "@/components/MusicToggle";
 import CommandPalette from "@/components/CommandPalette";
 
-const geist = Geist({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-instrument-sans",
   display: "swap",
 });
 
@@ -63,28 +61,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f5f0" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d0d0c" },
-  ],
+  themeColor: "#f2f2f2",
 };
-
-const themeInitScript = `
-(function () {
-  try {
-    var stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') {
-      document.documentElement.setAttribute('data-theme', stored);
-    }
-  } catch (e) {}
-  try {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduce && sessionStorage.getItem('intro-seen') !== '1') {
-      document.documentElement.setAttribute('data-intro', 'playing');
-    }
-  } catch (e) {}
-})();
-`;
 
 export default function RootLayout({
   children,
@@ -94,12 +72,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+      className={`${instrumentSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body suppressHydrationWarning>
         <a
           href="#main"
@@ -107,11 +82,8 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <LoadingScreen />
         {children}
-        <MusicToggle />
         <CommandPalette />
-        <div aria-hidden className="grain" />
       </body>
     </html>
   );
