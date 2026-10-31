@@ -12,7 +12,6 @@ import {
   Linkedin,
   Mail,
   Search,
-  SunMoon,
   type LucideIcon,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -28,7 +27,6 @@ type Command = {
 };
 
 export const OPEN_PALETTE_EVENT = "open-command-palette";
-export const TOGGLE_THEME_EVENT = "toggle-theme";
 
 function goToSection(id: string) {
   if (window.location.pathname === "/") {
@@ -55,11 +53,10 @@ export default function CommandPalette() {
   const commands = useMemo<Command[]>(() => {
     const sections: [string, string][] = [
       ["top", "Home"],
-      ["about", "About"],
-      ["experience", "Experience"],
+      ["projects", "Selected work"],
       ["showreel", "Certifications"],
-      ["projects", "Projects"],
-      ["process", "Process"],
+      ["about", "About"],
+      ["work", "Work experience"],
       ["github", "GitHub activity"],
       ["contact", "Contact"],
     ];
@@ -112,13 +109,6 @@ export default function CommandPalette() {
       { id: "resume", group: "Actions", label: "Open résumé (PDF)", Icon: FileText, run: () => openTab(links.resume) },
       { id: "github", group: "Actions", label: "Open GitHub profile", Icon: Github, run: () => openTab(links.github) },
       { id: "linkedin", group: "Actions", label: "Open LinkedIn", Icon: Linkedin, run: () => openTab(links.linkedin) },
-      {
-        id: "theme",
-        group: "Actions",
-        label: "Toggle light / dark theme",
-        Icon: SunMoon,
-        run: () => window.dispatchEvent(new Event(TOGGLE_THEME_EVENT)),
-      },
     ];
   }, []);
 

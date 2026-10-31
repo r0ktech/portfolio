@@ -115,17 +115,13 @@ export default function GitHubActivity() {
   }
 
   return (
-    <section id="github" className="chapter border-t border-[var(--color-border)]">
+    <section id="github" className="scroll-mt-24 pt-28 md:pt-36">
       <div className="container-portfolio">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Reveal>
-              <p className="eyebrow">05 — In the commits</p>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h2 className="mt-6 max-w-3xl text-[clamp(2.2rem,5vw,4rem)] font-semibold text-[var(--color-foreground)]">
-                Building in public, <span className="serif-accent text-[var(--color-foreground)]">one commit at a time.</span>
-              </h2>
+              <p className="text-[22px] leading-tight text-[var(--color-muted-foreground)]">Open source</p>
+              <h2 className="text-[clamp(1.75rem,3vw,2.15rem)] text-[var(--color-foreground)]">GitHub Activity</h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>

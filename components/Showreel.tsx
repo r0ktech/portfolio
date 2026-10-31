@@ -75,7 +75,7 @@ export default function Showreel() {
       ref={ref}
       id="showreel"
       aria-label="Certifications"
-      className={`relative border-t border-[var(--color-border)] ${reduce ? "" : "h-[260vh]"}`}
+      className={`relative mt-24 ${reduce ? "" : "h-[260vh]"}`}
     >
       <div className={`${reduce ? "relative h-[100dvh]" : "sticky top-0 h-[100dvh]"} overflow-hidden`}>
         {/* faint column guides */}
@@ -107,12 +107,12 @@ export default function Showreel() {
             style={reduce ? undefined : { opacity: centerOpacity, y: centerY }}
             className="relative z-20 max-w-[min(34rem,78vw)] rounded-[18px] px-5 py-6 text-center max-sm:bg-[color-mix(in_oklab,var(--color-background)_78%,transparent)] max-sm:backdrop-blur-md sm:max-w-[min(34rem,62vw)] sm:p-0"
           >
-            <p className="eyebrow justify-center">Certifications</p>
-            <p className="mt-4 text-[clamp(1.25rem,2.6vw,2.1rem)] font-medium leading-snug tracking-[-0.03em] text-[var(--color-foreground)]">
-              {prints.length} certifications from {issuers.slice(0, -1).join(", ")} and {issuers[issuers.length - 1]},{" "}
-              <span className="serif-accent text-[var(--color-foreground)]">all on the record.</span>
+            <p className="text-[22px] leading-tight text-[var(--color-muted-foreground)]">Credentials</p>
+            <h2 className="text-[clamp(1.9rem,3.2vw,2.35rem)] text-[var(--color-foreground)]">Certifications</h2>
+            <p className="mx-auto mt-4 max-w-[34ch] text-[15px] leading-relaxed text-[var(--color-muted-foreground)]">
+              {prints.length} certifications from {issuers.slice(0, -1).join(", ")} and {issuers[issuers.length - 1]}. Tap one to
+              view it.
             </p>
-            <p className="mt-5 font-mono text-[11px] text-[var(--color-muted-foreground)]">Tap a certificate to view it</p>
           </motion.div>
         </div>
 
