@@ -1,31 +1,29 @@
-import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import ProjectGrid from "@/components/ProjectGrid";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
-import GitHubActivity from "@/components/GitHubActivity";
+import SiteNav from "@/components/SiteNav";
+import Intro from "@/components/Intro";
+import SelectedWork from "@/components/SelectedWork";
+import Experiments from "@/components/Experiments";
 import Showreel from "@/components/Showreel";
-import Process from "@/components/Process";
+import AboutSection from "@/components/AboutSection";
+import WorkExperience from "@/components/WorkExperience";
+import GitHubActivity from "@/components/GitHubActivity";
+import ContactForm from "@/components/ContactForm";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function Home() {
   return (
     <>
-      <Nav />
+      <SiteNav />
       <main id="main">
-        <Hero />
+        <Intro />
+        <SelectedWork />
+        <Experiments />
         <Showreel />
-        <About />
-        <Experience />
-        <ProjectGrid />
-        <Process />
+        <AboutSection />
+        <WorkExperience />
         <GitHubActivity />
-        <Contact />
+        <ContactForm />
       </main>
-      <Footer />
-      <BackToTop />
+      <SiteFooter />
     </>
   );
 }
