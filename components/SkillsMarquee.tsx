@@ -39,30 +39,25 @@ const stack: { name: string; Icon: IconType; color: string }[] = [
   { name: "Vercel", Icon: SiVercel, color: "var(--color-foreground)" },
 ];
 
-export default function SkillsMarquee() {
+export default function SkillsMarquee({ className = "" }: { className?: string }) {
   return (
-    <div className="mt-20">
-      <p className="eyebrow">Daily toolkit</p>
-      <div className="mask-fade-x relative mt-6 overflow-hidden py-4">
-        <div className="animate-marquee flex w-max gap-4">
-          {[...stack, ...stack].map((item, i) => (
-            <div
-              key={`${item.name}-${i}`}
-              aria-hidden={i >= stack.length || undefined}
-              className="group flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] py-3 pl-4 pr-6 transition-colors duration-300 hover:border-[var(--color-border-strong)]"
-            >
-              <item.Icon
-                size={30}
-                aria-hidden
-                style={{ color: item.color }}
-                className="transition-transform duration-300 group-hover:scale-110"
-              />
-              <span className="font-mono text-sm text-[var(--color-muted-foreground)] transition-colors group-hover:text-[var(--color-foreground)]">
-                {item.name}
-              </span>
-            </div>
-          ))}
-        </div>
+    <div className={`mask-fade-x relative overflow-hidden py-2 ${className}`} aria-label="Tech stack">
+      <div className="animate-marquee flex w-max gap-3">
+        {[...stack, ...stack].map((item, i) => (
+          <div
+            key={`${item.name}-${i}`}
+            aria-hidden={i >= stack.length || undefined}
+            className="group flex shrink-0 items-center gap-2.5 rounded-[12px] bg-white px-4 py-3 shadow-[0_1px_2px_rgb(0_0_0/0.04)]"
+          >
+            <item.Icon
+              size={22}
+              aria-hidden
+              style={{ color: item.color }}
+              className="transition-transform duration-300 group-hover:scale-110"
+            />
+            <span className="text-[15px] text-[var(--color-foreground)]">{item.name}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
