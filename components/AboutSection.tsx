@@ -2,7 +2,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 
 const paragraphs = [
-  "I'm Raphael Okeke, a full-stack developer who builds products end to end: the interface people use, the API behind it and the database that keeps it honest.",
+  "I'm Raphael Okeke, a full-stack developer who builds products end to end, the interface people use, the API behind it and the database.",
   "Most recently I built Veyro, a tech store on web and mobile where checkout runs as a single database transaction, and Trusta, a marketplace for finding trusted artisans in Nigeria.",
   "Before that I spent two years building client interfaces at Elegant Computers, then interned as a backend developer at Apex Technology Hub, shipping authenticated Node.js APIs.",
   "I'm studying Computer Science at Nnamdi Azikiwe University, on track for First Class Honours, and I volunteer as a Cowrywise Campus Ambassador and GDSC content lead.",
