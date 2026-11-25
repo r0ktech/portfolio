@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { certifications, type Certification } from "@/lib/certifications";
@@ -10,16 +16,11 @@ import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 const prints = certifications;
 const issuers = [...new Set(certifications.map((c) => c.issuer.split(" ")[0]))];
 
-// Deterministic "random" tilt per print so server and client render the same.
-const tilt = (i: number, spread: number) => (((i * 73) % 17) / 16 - 0.5) * 2 * spread;
+const tilt = (i: number, spread: number) =>
+  (((i * 73) % 17) / 16 - 0.5) * 2 * spread;
 
 const ease = (t: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
 
-/**
- * Pinned scroll scene: the certificates start as a tidy stack of
- * prints, fan out into an orbit as you scroll, and drift slowly around it
- * while the pitch fades in at the centre.
- */
 export default function Showreel() {
   const ref = useRef<HTMLElement>(null);
   const [open, setOpen] = useState<Certification | null>(null);
@@ -44,7 +45,9 @@ export default function Showreel() {
     const el = ref.current;
     if (!el) return 0;
     const travel = el.offsetHeight - window.innerHeight;
-    return travel > 0 ? Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel)) : 0;
+    return travel > 0
+      ? Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel))
+      : 0;
   });
 
   // Orbit size follows the viewport so the ring always frames the centre text.
@@ -77,11 +80,19 @@ export default function Showreel() {
       aria-label="Certifications"
       className={`relative mt-24 ${reduce ? "" : "h-[260vh]"}`}
     >
-      <div className={`${reduce ? "relative h-[100dvh]" : "sticky top-0 h-[100dvh]"} overflow-hidden`}>
+      <div
+        className={`${reduce ? "relative h-[100dvh]" : "sticky top-0 h-[100dvh]"} overflow-hidden`}
+      >
         {/* faint column guides */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 flex justify-center gap-[24vw]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 flex justify-center gap-[24vw]"
+        >
           {[0, 1, 2].map((i) => (
-            <span key={i} className="h-full w-px border-l border-dashed border-[var(--color-border)]" />
+            <span
+              key={i}
+              className="h-full w-px border-l border-dashed border-[var(--color-border)]"
+            />
           ))}
         </div>
 
@@ -107,11 +118,16 @@ export default function Showreel() {
             style={reduce ? undefined : { opacity: centerOpacity, y: centerY }}
             className="relative z-20 max-w-[min(34rem,78vw)] rounded-[18px] px-5 py-6 text-center max-sm:bg-[color-mix(in_oklab,var(--color-background)_78%,transparent)] max-sm:backdrop-blur-md sm:max-w-[min(34rem,62vw)] sm:p-0"
           >
-            <p className="text-[22px] leading-tight text-[var(--color-muted-foreground)]">Credentials</p>
-            <h2 className="text-[clamp(1.9rem,3.2vw,2.35rem)] text-[var(--color-foreground)]">Certifications</h2>
+            <p className="text-[22px] leading-tight text-[var(--color-muted-foreground)]">
+              Credentials
+            </p>
+            <h2 className="text-[clamp(1.9rem,3.2vw,2.35rem)] text-[var(--color-foreground)]">
+              Certifications
+            </h2>
             <p className="mx-auto mt-4 max-w-[34ch] text-[15px] leading-relaxed text-[var(--color-muted-foreground)]">
-              {prints.length} certifications from {issuers.slice(0, -1).join(", ")} and {issuers[issuers.length - 1]}. Tap one to
-              view it.
+              {prints.length} certifications from{" "}
+              {issuers.slice(0, -1).join(", ")} and{" "}
+              {issuers[issuers.length - 1]}. Tap one to view it.
             </p>
           </motion.div>
         </div>
@@ -126,13 +142,20 @@ export default function Showreel() {
         )}
       </div>
 
-      <AnimatePresence>{open && <Viewer cert={open} onClose={() => setOpen(null)} />}</AnimatePresence>
+      <AnimatePresence>
+        {open && <Viewer cert={open} onClose={() => setOpen(null)} />}
+      </AnimatePresence>
     </section>
   );
 }
 
-/** Full-size certificate with its details and verification link. */
-function Viewer({ cert, onClose }: { cert: Certification; onClose: () => void }) {
+function Viewer({
+  cert,
+  onClose,
+}: {
+  cert: Certification;
+  onClose: () => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -155,9 +178,19 @@ function Viewer({ cert, onClose }: { cert: Certification; onClose: () => void })
       >
         <div
           className="relative w-full overflow-hidden rounded-[14px] shadow-2xl"
-          style={{ aspectRatio: `${cert.width} / ${cert.height}`, background: cert.background ?? "#ffffff", maxHeight: "68vh" }}
+          style={{
+            aspectRatio: `${cert.width} / ${cert.height}`,
+            background: cert.background ?? "#ffffff",
+            maxHeight: "68vh",
+          }}
         >
-          <Image src={cert.image} alt={`${cert.title} certificate from ${cert.issuer}`} fill sizes="960px" className="object-contain" />
+          <Image
+            src={cert.image}
+            alt={`${cert.title} certificate from ${cert.issuer}`}
+            fill
+            sizes="960px"
+            className="object-contain"
+          />
         </div>
         <div className="mt-5 flex flex-wrap items-end justify-between gap-4 text-white">
           <div>
@@ -230,9 +263,18 @@ function Print({
     };
   };
 
-  const x = useTransform([spread, progress] as MotionValue<number>[], ([s, p]: number[]) => pos(s, p).x);
-  const y = useTransform([spread, progress] as MotionValue<number>[], ([s, p]: number[]) => pos(s, p).y);
-  const rotate = useTransform(spread, (s) => tilt(index, 9) * (1 - ease(s)) + tilt(index + 3, 5) * ease(s));
+  const x = useTransform(
+    [spread, progress] as MotionValue<number>[],
+    ([s, p]: number[]) => pos(s, p).x,
+  );
+  const y = useTransform(
+    [spread, progress] as MotionValue<number>[],
+    ([s, p]: number[]) => pos(s, p).y,
+  );
+  const rotate = useTransform(
+    spread,
+    (s) => tilt(index, 9) * (1 - ease(s)) + tilt(index + 3, 5) * ease(s),
+  );
 
   const still = pos(1, 0.3);
   const number = String(total - index).padStart(2, "0");
@@ -243,7 +285,9 @@ function Print({
       onClick={onOpen}
       aria-label={`View ${name} certificate from ${issuer}`}
       style={{
-        ...(reduce ? { x: still.x, y: still.y, rotate: tilt(index + 3, 5) } : { x, y, rotate }),
+        ...(reduce
+          ? { x: still.x, y: still.y, rotate: tilt(index + 3, 5) }
+          : { x, y, rotate }),
         width: orbit.card,
         zIndex: total - index,
         // px, not %: percentage padding on a positioned box resolves against the whole stage
@@ -253,8 +297,17 @@ function Print({
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
       className="absolute block cursor-zoom-in bg-[#f4f1ea] text-left shadow-[0_18px_40px_-14px_rgb(0_0_0/0.55)] ring-1 ring-black/10"
     >
-      <span className="relative block aspect-[3/2] overflow-hidden" style={{ background }}>
-        <Image src={src} alt={`${name} certificate`} fill sizes="220px" className="object-contain" />
+      <span
+        className="relative block aspect-[3/2] overflow-hidden"
+        style={{ background }}
+      >
+        <Image
+          src={src}
+          alt={`${name} certificate`}
+          fill
+          sizes="220px"
+          className="object-contain"
+        />
       </span>
       <span className="absolute bottom-[3.5%] left-[5%] right-[5%] flex items-center justify-between font-mono text-[clamp(7px,0.7vw,10px)] uppercase tracking-[0.12em] text-[#6b675e]">
         <span>No. {number}</span>

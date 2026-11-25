@@ -17,10 +17,6 @@ import {
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
-// Official Simple Icons brand colors. Next.js, Express, and Vercel ship as
-// pure black marks, which would vanish on the dark theme's near-black
-// background, so those three use the foreground token instead of a literal
-// hex, letting them invert to white in dark mode like the rest of the UI.
 const stack: { name: string; Icon: IconType; color: string }[] = [
   { name: "HTML", Icon: SiHtml5, color: "#E34F26" },
   { name: "CSS", Icon: SiCss, color: "#1572B6" },
@@ -39,9 +35,16 @@ const stack: { name: string; Icon: IconType; color: string }[] = [
   { name: "Vercel", Icon: SiVercel, color: "var(--color-foreground)" },
 ];
 
-export default function SkillsMarquee({ className = "" }: { className?: string }) {
+export default function SkillsMarquee({
+  className = "",
+}: {
+  className?: string;
+}) {
   return (
-    <div className={`mask-fade-x relative overflow-hidden py-2 ${className}`} aria-label="Tech stack">
+    <div
+      className={`mask-fade-x relative overflow-hidden py-2 ${className}`}
+      aria-label="Tech stack"
+    >
       <div className="animate-marquee flex w-max gap-3">
         {[...stack, ...stack].map((item, i) => (
           <div
@@ -55,7 +58,9 @@ export default function SkillsMarquee({ className = "" }: { className?: string }
               style={{ color: item.color }}
               className="transition-transform duration-300 group-hover:scale-110"
             />
-            <span className="text-[15px] text-[var(--color-foreground)]">{item.name}</span>
+            <span className="text-[15px] text-[var(--color-foreground)]">
+              {item.name}
+            </span>
           </div>
         ))}
       </div>
