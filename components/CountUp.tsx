@@ -4,7 +4,6 @@ import { animate, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
 
-/** Counts from 0 to `to` the first time it scrolls into view. */
 export default function CountUp({
   to,
   decimals = 0,
